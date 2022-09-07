@@ -96,9 +96,8 @@ export default class SortableList {
   }
 
   moveDragElement({ clientX, clientY }) {
-    const { x: shiftX, y: shiftY } = this.shiftPoint
-    this.draggingLi.style.left = clientX - shiftX + 'px'
-    this.draggingLi.style.top = clientY - shiftY + 'px'
+    const { x, y } = this.shiftPoint
+    this.draggingLi.style.transform = `translate(${clientX - x}px, ${clientY - y}px)`
   }
 
   findDroppableArea({ clientX, clientY }) {
